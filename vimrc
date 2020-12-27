@@ -112,34 +112,20 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 "
 " Development
 "
-" Enable experimental fmt features
-" Fix folding code on buffer save
-let g:go_fmt_experimental = 1
-let g:go_fmt_command = "gopls"
-let g:go_list_type = "quickfix"
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-let g:go_auto_type_info = 1
-let g:go_imports_autosave = 1
-let g:go_autodetect_gopath = 1
-let g:go_gopls_enabled = 1
-"let g:go_auto_sameids = 0
-"let g:go_updatetime = 800
-"let g:go_implements_mode = 'gopls'
-
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_generate_tags = 1
-
 " Jump to next error with Ctrl-n and previous error with Ctrl-m. Close the
 " quickfix window with <leader>a
 nmap <C-n> :cnext<CR>
 nmap <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
+"
+" Golang
+"
+let g:go_fmt_experimental = 1
+let g:go_fmt_autosave = 0
+let g:go_gopls_complete_unimported = 'gopls'
+
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 "
 " Markdown
 "

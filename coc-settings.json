@@ -7,7 +7,7 @@
 	"snippets.ultisnips.directories": [
 		"UltiSnips", "gosnippets/UltiSnips"
 	],
-	"go.goplsArgs": ["-remote", "auto", "-logfile", "/tmp/gopls.log"],
+	"go.goplsArgs": ["-remote=auto", "-logfile", "/tmp/gopls.log"],
 	"go.goplsPath": "/home/federico/dev/go/bin/gopls",
 	"go.goplsOptions": {
 		"completeUnimported": true,
