@@ -1,0 +1,16 @@
+{
+	"coc.preferences.formatOnType": true,
+	"coc.preferences.bracketEnterImprove": true,
+	"html.format.indentInnerHtml": true,
+	"html.format.indentHandlebars": true,
+	"html.autoClosingTags": true,
+	"snippets.ultisnips.directories": [
+		"UltiSnips", "gosnippets/UltiSnips"
+	],
+	"go.goplsArgs": ["-remote", "auto", "-logfile", "/tmp/gopls.log"],
+	"go.goplsPath": "/home/federico/dev/go/bin/gopls",
+	"go.goplsOptions": {
+		"completeUnimported": true,
+		"usePlaceholders": true
+	}
+}

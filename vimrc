@@ -1,0 +1,157 @@
+"
+" System
+"
+
+set shell=/bin/zsh
+"
+" Styling
+"
+" Highlight current line
+set cursorline
+
+" Enable numbers
+set number
+
+" Hide the double -- INSERT -- when using Airline
+set noshowmode
+
+" Save on :make
+set autowrite
+
+" Set window title
+"set title
+
+"
+" Indentation
+"
+set autoindent
+set noexpandtab
+set tabstop=4 
+set shiftwidth=4
+set smarttab
+
+" Set indentation level. Do NOT remove trailing space
+set list lcs=tab:\|\ 
+
+" Folding method based on syntax
+set foldmethod=syntax
+set foldlevelstart=0
+
+"
+" Search
+"
+
+" Ignore case when searching
+set ignorecase
+set smartcase
+
+" Highlight patterns while typing the pattern
+set incsearch
+
+" Show matching brackets
+set showmatch
+
+"
+" Splits
+"
+" Move between splits
+nnoremap <A-h> <C-W><C-H>
+nnoremap <A-j> <C-W><C-J>
+nnoremap <A-k> <C-W><C-K>
+nnoremap <A-l> <C-W><C-L>
+nnoremap <leader><Up> :exe "resize " . (winheight(0) +5)<CR>
+nnoremap <leader><Down> :exe "resize " . (winheight(0) -5)<CR>
+nnoremap <leader><Left> :exe "vertical resize " . (winheight(0) +5)<CR>
+nnoremap <leader><Right> :exe "vertical resize " . (winheight(0) -5)<CR>
+
+"
+" Terminal
+"
+" Use ESC for exiting terminal mode and allow moving to other splits
+tnoremap <Esc> <C-\><C-n>
+nnoremap <Leader>t :30split <Bar> :terminal<CR>
+nnoremap <Leader>vt :vert 50split <Bar> :terminal<CR>
+
+"
+" Buffers (because are better than tabs)
+"
+" Allow moving to another buffer without saving the actual one
+set hidden
+" Open a new empty buffer
+nmap <leader>b :enew<CR>
+" Move to next/previous buffer
+nmap <leader>l :bnext<CR>
+nmap <leader>h :bprev<CR>
+" Close the current buffer and move to the previous one
+nmap <leader>bq :bp <BAR> bd #<CR>
+" Show all open buffers and their status
+nmap <leader>bs :ls<CR>
+
+"
+" NerdTree
+"
+let NERDTreeMapCustomOpen = 'l'
+let NERDTreeMapCloseDir = 'h'
+
+nnoremap <leader>m :NERDTreeToggle<CR>
+
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+"
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
+" Start NERDTree when Vim starts with a directory argument.
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+"
+" Development
+"
+" Enable experimental fmt features
+" Fix folding code on buffer save
+let g:go_fmt_experimental = 1
+let g:go_fmt_command = "gopls"
+let g:go_list_type = "quickfix"
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_auto_type_info = 1
+let g:go_imports_autosave = 1
+let g:go_autodetect_gopath = 1
+let g:go_gopls_enabled = 1
+"let g:go_auto_sameids = 0
+"let g:go_updatetime = 800
+"let g:go_implements_mode = 'gopls'
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+
+" Jump to next error with Ctrl-n and previous error with Ctrl-m. Close the
+" quickfix window with <leader>a
+nmap <C-n> :cnext<CR>
+nmap <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+"
+" Markdown
+"
+let g:mkdp_browser = 'firefox'
+let g:mkdp_filetypes = ['markdown']
+
+"
+" HTML/XML/XHTML/CSS (Emmet)
+"
+" Enable emmet only in Insert and Normal mode
+let g:user_emmet_mode = 'in'
+
+" Enable emmet just for html/css/php
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,php EmmetInstall
