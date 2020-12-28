@@ -93,6 +93,12 @@ nmap <leader>bs :ls<CR>
 let NERDTreeMapCustomOpen = 'l'
 let NERDTreeMapCloseDir = 'h'
 
+" This is needed in order to avoid errors
+let g:NERDTreeExtensionHighlightColor = {}
+" Color the golang icon with the color used for the gopher icon
+let s:golang_blue = "1f6f7d"
+let g:NERDTreeExtensionHighlightColor['go'] = s:golang_blue
+
 nnoremap <leader>m :NERDTreeToggle<CR>
 
 " Start NERDTree and put the cursor back in the other window.
@@ -141,3 +147,9 @@ let g:user_emmet_mode = 'in'
 " Enable emmet just for html/css/php
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,php EmmetInstall
+
+" Tell Bracey which browser it has to open for live preview
+g:bracey_browser_command = 'firefox'
+" Refresh current page when buffer is written
+g:bracey_refresh_on_save = 1
+

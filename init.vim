@@ -22,6 +22,7 @@ Plug 'fatih/vim-go'
 " (xh)tml
 Plug 'othree/xml.vim'
 Plug 'mattn/emmet-vim'
+Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
