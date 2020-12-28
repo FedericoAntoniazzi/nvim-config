@@ -6,10 +6,10 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Theme
 Plug 'FedericoAntoniazzi/tokyonight-vim'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Completion and tools
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
