@@ -1,5 +1,8 @@
 # My NeoVim setup
 
+## Screenshot
+![Screenshot](images/screenshot.png)
+
 ## Languages
 - Golang
 - Markdown (+ Live preview)
