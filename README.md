@@ -16,6 +16,8 @@ I use two plugins for different scopes:
 
 > **Note**: To make vim-go and coc-co work together, disable the usage of gopls for vim-go, do not set a languageserver in coc-settings.json manually and configure all these plugins to use the same gopls process. If any of these settings is not done, you'll have troubles with completion, errors and lots of resources used by more gopls instances.
 
+**Manual intervention required**: Install gopls manually and set the correct path in the coc-settings.json
+
 ### HTML, CSS, JavaScript (Also XML)
 I don't use HTML, CSS and JS a lot but I found 3 useful plugins:
 - [othree/xml.vim](https://github.com/othree/xml.vim) for managing *ML tags
