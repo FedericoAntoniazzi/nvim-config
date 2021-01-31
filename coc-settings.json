@@ -12,5 +12,6 @@
 	"go.goplsOptions": {
 		"completeUnimported": true,
 		"usePlaceholders": true
-	}
+	},
+	"rust-client.disableRustup": true
 }
