@@ -3,6 +3,10 @@
 "
 
 set shell=/bin/zsh
+
+" Use system clipboard
+set clipboard=unnamedplus
+
 "
 " Styling
 "
