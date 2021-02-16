@@ -25,6 +25,11 @@ Plug 'mattn/emmet-vim'
 Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" Rust/Cargo
+Plug 'timonv/vim-cargo'
+
+" Tools
+Plug 'triglav/vim-visual-increment'
 
 call plug#end()
 
