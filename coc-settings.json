@@ -1,17 +1,27 @@
 {
 	"coc.preferences.formatOnType": true,
 	"coc.preferences.bracketEnterImprove": true,
-	"html.format.indentInnerHtml": true,
-	"html.format.indentHandlebars": true,
-	"html.autoClosingTags": true,
-	"snippets.ultisnips.directories": [
-		"UltiSnips", "gosnippets/UltiSnips"
-	],
 	"go.goplsArgs": ["-remote=auto", "-logfile", "/tmp/gopls.log"],
 	"go.goplsPath": "/home/federico/dev/go/bin/gopls",
 	"go.goplsOptions": {
 		"completeUnimported": true,
 		"usePlaceholders": true
 	},
+	"html.format.indentInnerHtml": true,
+	"html.format.indentHandlebars": true,
+	"html.autoClosingTags": true,
+	"jedi.enable": true,
+	"jedi.executable.command": "jedi-language-server",
+	"jedi.completion.disableSnippets": false,
+	"jedi.workspace.symbols.ignoreFolders": [
+		".nox",
+		".tox",
+		".venv",
+		"__pycache__",
+		"venv"
+	],
+	"snippets.ultisnips.directories": [
+		"UltiSnips", "gosnippets/UltiSnips"
+	],
 	"rust-client.disableRustup": true
 }
