@@ -16,6 +16,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'honza/vim-snippets'
+Plug 'tpope/vim-surround'
 
 " Golang
 Plug 'fatih/vim-go'
