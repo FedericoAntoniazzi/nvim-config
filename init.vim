@@ -17,6 +17,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
 
 " Golang
 Plug 'fatih/vim-go'
