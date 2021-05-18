@@ -33,6 +33,9 @@ Plug 'timonv/vim-cargo'
 " Tools
 Plug 'triglav/vim-visual-increment'
 
+" Terraform
+Plug 'hashivim/vim-terraform'
+
 call plug#end()
 
 source ~/.config/nvim/vimrc

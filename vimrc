@@ -159,3 +159,11 @@ g:bracey_refresh_on_save = 1
 
 " Adjust indent size for html files
 autocmd FileType html,css,js,ts set expandtab shiftwidth=2
+
+"
+" Terraform
+"
+let g:terraform_align = 1
+let g:terraform_fold_sections=1
+let g:terraform_fmt_on_save=1
+autocmd BufRead,BufNewFile *.hcl set filetype=terraform
