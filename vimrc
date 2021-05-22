@@ -58,16 +58,11 @@ set showmatch
 "
 " Splits
 "
-" Move between splits
-nnoremap <A-h> <C-W><C-H>
-nnoremap <A-j> <C-W><C-J>
-nnoremap <A-k> <C-W><C-K>
-nnoremap <A-l> <C-W><C-L>
-nnoremap <leader><Up> :exe "resize " . (winheight(0) +5)<CR>
-nnoremap <leader><Down> :exe "resize " . (winheight(0) -5)<CR>
-nnoremap <leader><Left> :exe "vertical resize " . (winheight(0) +5)<CR>
-nnoremap <leader><Right> :exe "vertical resize " . (winheight(0) -5)<CR>
-
+" Resize splits
+nnoremap <A-h> <C-w><
+nnoremap <A-l> <C-w>>
+nnoremap <A-j> <C-w>+
+nnoremap <A-k> <C-w>-
 "
 " Terminal
 "
