@@ -10,16 +10,6 @@
 	"html.format.indentInnerHtml": true,
 	"html.format.indentHandlebars": true,
 	"html.autoClosingTags": true,
-	"jedi.enable": true,
-	"jedi.executable.command": "jedi-language-server",
-	"jedi.completion.disableSnippets": false,
-	"jedi.workspace.symbols.ignoreFolders": [
-		".nox",
-		".tox",
-		".venv",
-		"__pycache__",
-		"venv"
-	],
 	"snippets.ultisnips.directories": [
 		"UltiSnips", "gosnippets/UltiSnips"
 	],
