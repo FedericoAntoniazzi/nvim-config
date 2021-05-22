@@ -105,19 +105,21 @@ let g:NERDTreeExtensionHighlightColor['go'] = s:golang_blue
 
 nnoremap <leader>m :NERDTreeToggle<CR>
 
-" Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
-"
-" Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+augroup NerdTreeSettings
+	" Start NERDTree and put the cursor back in the other window.
+	autocmd VimEnter * NERDTree | wincmd p
+	"
+	" Start NERDTree when Vim is started without file arguments.
+	autocmd StdinReadPre * let s:std_in=1
+	autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
-" Start NERDTree when Vim starts with a directory argument.
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+	" Start NERDTree when Vim starts with a directory argument.
+	autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+		\ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
 
-" Exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+	" Exit Vim if NERDTree is the only window left.
+	autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+augroup END
 
 "
 " Development
@@ -135,7 +137,9 @@ let g:go_fmt_experimental = 1
 let g:go_fmt_autosave = 0
 let g:go_gopls_complete_unimported = 'gopls'
 
-autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+augroup Golang
+	autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+augroup END
 "
 " Markdown
 "
@@ -150,7 +154,6 @@ let g:user_emmet_mode = 'in'
 
 " Enable emmet just for html/css/php
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,php EmmetInstall
 
 " Tell Bracey which browser it has to open for live preview
 g:bracey_browser_command = 'firefox'
@@ -158,7 +161,10 @@ g:bracey_browser_command = 'firefox'
 g:bracey_refresh_on_save = 1
 
 " Adjust indent size for html files
-autocmd FileType html,css,js,ts set expandtab shiftwidth=2
+augroup WebDevelopment
+	autocmd FileType html,css,js,ts set expandtab shiftwidth=2
+	autocmd FileType html,css,php EmmetInstall
+augroup END
 
 "
 " Terraform
@@ -166,4 +172,6 @@ autocmd FileType html,css,js,ts set expandtab shiftwidth=2
 let g:terraform_align = 1
 let g:terraform_fold_sections=1
 let g:terraform_fmt_on_save=1
-autocmd BufRead,BufNewFile *.hcl set filetype=terraform
+augroup Terraform
+	autocmd BufRead,BufNewFile *.hcl set filetype=terraform
+augroup END
