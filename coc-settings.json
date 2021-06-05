@@ -7,6 +7,17 @@
 		"completeUnimported": true,
 		"usePlaceholders": true
 	},
+	"languageserver": {
+		"terraform": {
+			"command": "terraform-lsp",
+			"filetypes": [
+				"terraform",
+				"tf"
+			],
+			"initializationOptions": {},
+			"settings": {}
+		}
+	},
 	"html.format.indentInnerHtml": true,
 	"html.format.indentHandlebars": true,
 	"html.autoClosingTags": true,
