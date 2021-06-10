@@ -203,3 +203,10 @@ let g:terraform_fmt_on_save=1
 augroup Terraform
 	autocmd BufRead,BufNewFile *.hcl set filetype=terraform
 augroup END
+
+"
+" Toml
+" 
+augroup Toml
+	autocmd FileType toml set expandtab
+augroup END
