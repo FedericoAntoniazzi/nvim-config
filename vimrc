@@ -22,6 +22,9 @@ set noshowmode
 " Save on :make
 set autowrite
 
+" Do not wrap lines
+set nowrap
+
 " Set window title
 "set title
 
