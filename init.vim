@@ -30,9 +30,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 " Rust/Cargo
 Plug 'timonv/vim-cargo'
 
-" Tools
-Plug 'triglav/vim-visual-increment'
-
 " Terraform
 Plug 'hashivim/vim-terraform'
 

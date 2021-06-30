@@ -17,6 +17,14 @@
 			],
 			"initializationOptions": {},
 			"settings": {}
+		},
+		"golang": {
+			"command": "gopls",
+			"rootPatterns": ["go.mod"],
+			"filetypes": ["go"],
+			"initializationOptions": {
+				"usePlaceholders": true
+			}
 		}
 	},
 	"html.format.indentInnerHtml": true,
@@ -36,13 +44,6 @@
 		"go"
 	],
 	"hover.target": "float",
-	"languageserver": {
-		"golang": {
-			"command": "gopls",
-			"rootPatterns": ["go.mod"],
-			"filetypes": ["go"]
-		}
-	},
 	"snippets.ultisnips.directories": [
 		"UltiSnips", "gosnippets/UltiSnips"
 	],

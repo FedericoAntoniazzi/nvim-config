@@ -135,23 +135,8 @@ nnoremap <leader>a :cclose<CR>
 let g:go_diagnostics_enabled = 0
 let g:go_metalinter_enabled = []
 
-augroup Golang
-	" Organize imports on save
-	autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
-	" Run all tests
-	autocmd BufEnter *.go nmap <leader>t <Plug>(go-test)
-	" Run current test only
-	autocmd BufEnter *.go nmap <leader>tt <Plug>(go-test-func)
-	" Toggle the coverage profile for the current file
-	autocmd BufEnter *.go nmap <leader>co <Plug>(go-coverage-toggle)
-	" Info about func/type/var under the cursor
-	autocmd BufEnter *.go nmap <leader>i <Plug>(go-info)
-	" Info about implementations
-	autocmd BufEnter *.go nmap <leader>ii <Plug>(go-implements)
-	" Describe the func/type/var under the cursor
-	autocmd BufEnter *.go nmap <leader>ci <Plug>(go-describe)
-	autocmd BufEnter *.go nmap <leader>cc <Plug>(go-callers)
-augroup END
+let g:go_fmt_autosave = 0
+let g:go_gopls_complete_unimported = 'gopls'
 
 " don't jump to errors after metalinter is invoked
 let g:go_jump_to_error = 0
@@ -170,6 +155,24 @@ let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
+
+augroup Golang
+	" Organize imports on save
+	autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+	" Run all tests
+	autocmd BufEnter *.go nmap <leader>t <Plug>(go-test)
+	" Run current test only
+	autocmd BufEnter *.go nmap <leader>tt <Plug>(go-test-func)
+	" Toggle the coverage profile for the current file
+	autocmd BufEnter *.go nmap <leader>co <Plug>(go-coverage-toggle)
+	" Info about func/type/var under the cursor
+	autocmd BufEnter *.go nmap <leader>i <Plug>(go-info)
+	" Info about implementations
+	autocmd BufEnter *.go nmap <leader>ii <Plug>(go-implements)
+	" Describe the func/type/var under the cursor
+	autocmd BufEnter *.go nmap <leader>ci <Plug>(go-describe)
+	autocmd BufEnter *.go nmap <leader>cc <Plug>(go-callers)
+augroup END
 
 "
 " Markdown
