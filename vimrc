@@ -25,6 +25,9 @@ set autowrite
 " Do not wrap lines
 set nowrap
 
+" Display relative row numbers
+set relativenumber
+
 " Set window title
 "set title
 
@@ -216,3 +219,10 @@ augroup END
 augroup Toml
 	autocmd FileType toml set expandtab
 augroup END
+
+"
+" Git Gutter
+"
+" Disable GitGutter mappings since I need only a reference
+" of added, modified, deleted lines in files
+let g:gitgutter_map_keys = 0
