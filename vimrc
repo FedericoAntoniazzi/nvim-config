@@ -184,26 +184,6 @@ let g:mkdp_browser = 'firefox'
 let g:mkdp_filetypes = ['markdown']
 
 "
-" HTML/XML/XHTML/CSS (Emmet)
-"
-" Enable emmet only in Insert and Normal mode
-let g:user_emmet_mode = 'in'
-
-" Enable emmet just for html/css/php
-let g:user_emmet_install_global = 0
-
-" Tell Bracey which browser it has to open for live preview
-g:bracey_browser_command = 'firefox'
-" Refresh current page when buffer is written
-g:bracey_refresh_on_save = 1
-
-" Adjust indent size for html files
-augroup WebDevelopment
-	autocmd FileType html,css,js,ts set expandtab shiftwidth=2
-	autocmd FileType html,css,php EmmetInstall
-augroup END
-
-"
 " Terraform
 "
 let g:terraform_align = 1
