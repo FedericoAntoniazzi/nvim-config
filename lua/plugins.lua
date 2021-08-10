@@ -28,4 +28,10 @@ return require('packer').startup(function()
     'akinsho/nvim-bufferline.lua',
     requires = 'kyazdani42/nvim-web-devicons'
   }
+
+  -- File explorer
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons'
+  }
 end)
