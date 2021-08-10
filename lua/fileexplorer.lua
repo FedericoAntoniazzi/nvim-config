@@ -1,4 +1,5 @@
 -- Ref: https://github.com/kyazdani42/nvim-tree.lua
+-- See also: https://github.com/kyazdani42/nvim-tree.lua/issues/557 for lua config
 vim.g.nvim_tree_side = "left"
 vim.g.nvim_tree_width = 30
 vim.g.nvim_tree_ignore = { '.git', 'node_modules', '.cache' }
