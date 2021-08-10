@@ -5,3 +5,4 @@ exe 'source '.vimrc
 
 lua require('statusline')
 lua require('bufferbar')
+lua require('fileexplorer')
