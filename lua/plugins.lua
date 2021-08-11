@@ -10,7 +10,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -44,16 +44,17 @@ return require('packer').startup(function()
     end
   }
 
-  -- Completion engine
+  -- LSP Configuration
   use {
-    'hrsh7th/nvim-compe',
-    event = "InsertEnter",
+    "kabouzeid/nvim-lspinstall",
+    event = "BufRead"
+  }
+  use {
+    'neovim/nvim-lspconfig',
+    after = "nvim-lspinstall",
+    opt = true,
     config = function ()
-      require('completion')
-    end,
-    wants = "LuaSnip",
-    requires = {
-      'L3MON4D3/LuaSnip'
-    }
+      require('lsp')
+    end
   }
 end)
