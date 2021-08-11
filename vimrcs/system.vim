@@ -64,3 +64,16 @@ set hidden
 " nmap <leader>bq :bp <BAR> bd #<CR>
 " " Show all open buffers and their status
 " nmap <leader>bs :ls<CR>
+
+"
+" Completion
+"
+set completeopt=menuone,noselect
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+
+" File explorer
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
