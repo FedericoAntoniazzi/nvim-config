@@ -47,10 +47,13 @@ return require('packer').startup(function()
   -- Completion engine
   use {
     'hrsh7th/nvim-compe',
+    event = "InsertEnter",
     config = function ()
       require('completion')
-    end
+    end,
+    wants = "LuaSnip",
+    requires = {
+      'L3MON4D3/LuaSnip'
+    }
   }
-  -- Snippet engine
-  use 'L3MON4D3/LuaSnip'
 end)
