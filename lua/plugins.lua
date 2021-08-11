@@ -20,23 +20,37 @@ return require('packer').startup(function()
   -- Status line
   use {
     'hoob3rt/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    config = function ()
+      require('statusline')
+    end
   }
   -- Buffer line
   -- This functionality is out of scope of lualine
   use {
     'akinsho/nvim-bufferline.lua',
-    requires = 'kyazdani42/nvim-web-devicons'
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function ()
+      require('bufferbar')
+    end
   }
 
   -- File explorer
   use {
     'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons'
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function ()
+      require('fileexplorer')
+    end
   }
 
   -- Completion engine
-  use 'hrsh7th/nvim-compe'
+  use {
+    'hrsh7th/nvim-compe',
+    config = function ()
+      require('completion')
+    end
+  }
   -- Snippet engine
   use 'L3MON4D3/LuaSnip'
 end)
