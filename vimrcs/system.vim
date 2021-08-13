@@ -56,11 +56,9 @@ tnoremap <Esc> <C-\><C-n>
 " Allow moving to another buffer without saving the current one
 set hidden
 " Open a new empty buffer
-" nmap <leader>b :enew<CR>
-" " Move to next/previous buffer
-" nmap <leader>l :bnext<CR>
-" nmap <leader>h :bprev<CR>
-" " Close the current buffer and move to the previous one
-" nmap <leader>bq :bp <BAR> bd #<CR>
-" " Show all open buffers and their status
-" nmap <leader>bs :ls<CR>
+nmap <leader>b :enew<CR>
+" Move to next/previous buffer
+nmap <A-m> :bnext<CR>
+nmap <A-n> :bprev<CR>
+" Close the current buffer and move to the previous one
+nmap <leader>bq :bp <BAR> bd #<CR>
