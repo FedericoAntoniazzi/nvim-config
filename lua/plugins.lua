@@ -46,15 +46,26 @@ return require('packer').startup(function(use)
 
   -- LSP Configuration
   use {
-    "kabouzeid/nvim-lspinstall",
-    event = "BufRead"
-  }
-  use {
     'neovim/nvim-lspconfig',
-    after = "nvim-lspinstall",
-    opt = true,
     config = function ()
       require('lsp')
     end
+  }
+
+  -- Completion
+  use {
+    "hrsh7th/nvim-compe",
+    event = "InsertEnter",
+    config = function()
+      require "completion"
+    end,
+    wants = "LuaSnip",
+    requires = {
+      "L3MON4D3/LuaSnip",
+      event = "InsertCharPre",
+      config = function()
+        require "snippets"
+      end
+    }
   }
 end)
