@@ -61,11 +61,41 @@ return require('packer').startup(function(use)
     end,
     wants = "LuaSnip",
     requires = {
-      "L3MON4D3/LuaSnip",
-      event = "InsertCharPre",
-      config = function()
-        require "snippets"
-      end
+      {
+        "L3MON4D3/LuaSnip",
+        wants = "friendly-snippets",
+        event = "InsertCharPre",
+        config = function()
+          require "snippets"
+        end
+      },
+      {
+        "rafamadriz/friendly-snippets",
+        event = "InsertCharPre"
+      }
     }
+  }
+
+  use {
+    "ray-x/lsp_signature.nvim",
+    after = "nvim-lspconfig",
+  }
+
+  use {
+    "windwp/nvim-autopairs",
+    after = "nvim-compe",
+    config = function()
+      require "pairs"
+    end
+  }
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require "gitsymbols"
+    end
   }
 end)
