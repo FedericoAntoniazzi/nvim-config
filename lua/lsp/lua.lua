@@ -1,15 +1,15 @@
 -- Configuration for lua LSP
 -- Depends on sumneko lua LSP
 -- Install it using pacman -Syu lua-language-server
-local lsp_lua = {}
+local lua = {}
 
-function lsp_lua.setup(on_attach, capabilities)
+function lua.setup(on_attach, capabilities)
   local runtime_path = vim.split(package.path, ';')
   table.insert(runtime_path, "lua/?.lua")
   table.insert(runtime_path, "lua/?/init.lua")
 
-  require'lspconfig'.sumneko_lua.setup {
-    cmd = {"/usr/bin/lua-language-server", "-E", "/usr/share/lua-language-server/main.lua"},
+  require('lspconfig').sumneko_lua.setup {
+    cmd = {"/usr/bin/lua-language-server", "-E", "usr/share/lua-language-server/main.lua"},
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
@@ -37,4 +37,4 @@ function lsp_lua.setup(on_attach, capabilities)
   }
 end
 
-return lsp_lua
+return lua
