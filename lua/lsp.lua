@@ -7,6 +7,8 @@ local on_attach = function(client, bufnr)
   --Enable completion triggered by <c-x><c-o>
   -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
+  require "lsp_signature".on_attach()
+
   -- Mappings.
   local opts = { noremap=true, silent=true }
 
@@ -30,4 +32,14 @@ local on_attach = function(client, bufnr)
   -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 end
 
-require("lsp_lua").setup(on_attach)
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+
+require("lsp_lua").setup(on_attach, capabilities)
