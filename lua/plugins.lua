@@ -48,46 +48,46 @@ return require('packer').startup(function(use)
   use {
     'neovim/nvim-lspconfig',
     config = function ()
-      require('lsp')
+      require('lsp.lspconfig')
     end
   }
 
   -- Completion
-  use {
-    "hrsh7th/nvim-compe",
-    event = "InsertEnter",
-    config = function()
-      require "completion"
-    end,
-    wants = "LuaSnip",
-    requires = {
-      {
-        "L3MON4D3/LuaSnip",
-        wants = "friendly-snippets",
-        event = "InsertCharPre",
-        config = function()
-          require "snippets"
-        end
-      },
-      {
-        "rafamadriz/friendly-snippets",
-        event = "InsertCharPre"
-      }
-    }
-  }
+  -- use {
+  --   "hrsh7th/nvim-compe",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     require "completion"
+  --   end,
+  --   wants = "LuaSnip",
+  --   requires = {
+  --     {
+  --       "L3MON4D3/LuaSnip",
+  --       wants = "friendly-snippets",
+  --       event = "InsertCharPre",
+  --       config = function()
+  --         require "snippets"
+  --       end
+  --     },
+  --     {
+  --       "rafamadriz/friendly-snippets",
+  --       event = "InsertCharPre"
+  --     }
+  --   }
+  -- }
 
-  use {
-    "ray-x/lsp_signature.nvim",
-    after = "nvim-lspconfig",
-  }
+  -- use {
+  --   "ray-x/lsp_signature.nvim",
+  --   after = "nvim-lspconfig",
+  -- }
 
-  use {
-    "windwp/nvim-autopairs",
-    after = "nvim-compe",
-    config = function()
-      require "pairs"
-    end
-  }
+  -- use {
+  --   "windwp/nvim-autopairs",
+  --   after = "nvim-compe",
+  --   config = function()
+  --     require "pairs"
+  --   end
+  -- }
 
   use {
     'lewis6991/gitsigns.nvim',

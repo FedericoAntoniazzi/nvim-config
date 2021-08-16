@@ -7,7 +7,7 @@ local on_attach = function(client, bufnr)
   --Enable completion triggered by <c-x><c-o>
   -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  require "lsp_signature".on_attach()
+  -- require "lsp_signature".on_attach()
 
   -- Mappings.
   local opts = { noremap=true, silent=true }
@@ -42,4 +42,4 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-require("lsp_lua").setup(on_attach, capabilities)
+require('lsp.lua').setup(on_attach, capabilities)
