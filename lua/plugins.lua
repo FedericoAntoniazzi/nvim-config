@@ -62,30 +62,37 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- Completion
   use {
-    'hrsh7th/nvim-compe',
-    wants = 'L3MON4D3/LuaSnip',
+    "hrsh7th/nvim-compe",
+    event = "InsertEnter",
     config = function()
-      require("completion")
-    end
-  }
-
-  -- Snippet
-  use {
-    'L3MON4D3/LuaSnip'
+      require "completion"
+    end,
+    wants = "LuaSnip",
+    requires = {
+      {
+        "L3MON4D3/LuaSnip",
+        wants = "friendly-snippets",
+        event = "InsertCharPre",
+      },
+      {
+        "rafamadriz/friendly-snippets",
+        event = "InsertCharPre",
+      },
+    },
   }
 
   -- Signature
   -- Show function/method signature
   use {
     'ray-x/lsp_signature.nvim',
-    wants = {'lspconfig'}
+    after = 'nvim-lspconfig'
   }
 
   -- Auto pair parenthes,brackets and so on...
   use {
     'windwp/nvim-autopairs',
+    after = 'nvim-compe',
     config = function ()
       require('pairs')
     end
@@ -94,6 +101,7 @@ return require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+    event = 'BufRead',
     config = function()
       require('treesitter')
     end
