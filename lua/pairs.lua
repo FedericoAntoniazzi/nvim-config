@@ -1,4 +1,5 @@
 require('nvim-autopairs').setup{
+  -- Don't add pairs if it already have a close pairs in same line
   enable_check_bracket_line = false
 }
 require("nvim-autopairs.completion.compe").setup({

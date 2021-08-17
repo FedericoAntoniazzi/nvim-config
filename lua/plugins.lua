@@ -53,4 +53,49 @@ return require('packer').startup(function(use)
       require "gitsymbols"
     end
   }
+
+  -- LSP setup
+  use {
+    'neovim/nvim-lspconfig',
+    config = function()
+      require("lsp.lspconfig")
+    end
+  }
+
+  -- Completion
+  use {
+    'hrsh7th/nvim-compe',
+    wants = 'L3MON4D3/LuaSnip',
+    config = function()
+      require("completion")
+    end
+  }
+
+  -- Snippet
+  use {
+    'L3MON4D3/LuaSnip'
+  }
+
+  -- Signature
+  -- Show function/method signature
+  use {
+    'ray-x/lsp_signature.nvim',
+    wants = {'lspconfig'}
+  }
+
+  -- Auto pair parenthes,brackets and so on...
+  use {
+    'windwp/nvim-autopairs',
+    config = function ()
+      require('pairs')
+    end
+  }
+
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+      require('treesitter')
+    end
+  }
 end)
