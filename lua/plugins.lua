@@ -44,13 +44,27 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- Plenary
+  use {
+    "nvim-lua/plenary.nvim",
+    after = "nvim-bufferline.lua",
+  }
+
+  -- Git signs
   use {
     'lewis6991/gitsigns.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim'
-    },
+    after = 'plenary.nvim',
     config = function()
       require "gitsymbols"
+    end
+  }
+
+  -- Telescope
+  use {
+    'nvim-telescope/telescope.nvim',
+    after = 'plenary.nvim',
+    config = function ()
+      require('telescopeconf')
     end
   }
 
@@ -62,6 +76,7 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- Completion
   use {
     "hrsh7th/nvim-compe",
     event = "InsertEnter",
@@ -98,6 +113,7 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
