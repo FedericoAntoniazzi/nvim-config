@@ -17,8 +17,10 @@ set smarttab
 " Folding
 "
 " Folding method based on syntax
-set foldmethod=syntax
-set foldlevelstart=0
+" set foldmethod=syntax
+" set foldlevelstart=0
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 
 "
 " Search
