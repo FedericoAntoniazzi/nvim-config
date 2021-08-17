@@ -1,6 +1,8 @@
 require('nvim-autopairs').setup{
   -- Don't add pairs if it already have a close pairs in same line
-  enable_check_bracket_line = false
+  enable_check_bracket_line = false,
+  -- Don't add pairs if the next char is alphanumeric
+  ignored_next_char = "[%w%.]" -- will ignore alphanumeric and `.` symbol
 }
 require("nvim-autopairs.completion.compe").setup({
   map_cr = true, --  map <CR> on insert mode
