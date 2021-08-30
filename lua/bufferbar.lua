@@ -4,10 +4,6 @@ require'bufferline'.setup {
     numbers = "ordinal",
     number_style = "subscript",
 
-    -- I don't know, it should disable mappings
-    -- but setting to true has no effect...
-    mappings = false,
-
     -- Command to use for closing buffers
     close_command = "bdelete! %d",
 

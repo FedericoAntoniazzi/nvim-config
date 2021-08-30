@@ -22,11 +22,7 @@ end
 
 local check_back_space = function()
   local col = vim.fn.col '.' - 1
-  if col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' then
-    return true
-  else
-    return false
-  end
+  return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s'
 end
 
 -- Use (s-)tab to:
@@ -57,7 +53,7 @@ _G.s_tab_complete = function()
 end
 
 -- Map tab to the above tab complete functiones
-local opts = { expr = true }
+local opts = { expr = true, noremap = true }
 vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.tab_complete()', opts)
 vim.api.nvim_set_keymap('s', '<Tab>', 'v:lua.tab_complete()', opts)
 vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', opts)
