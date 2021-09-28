@@ -1,8 +1,9 @@
 require'bufferline'.setup {
   options = {
     -- Show buffer numbers
-    numbers = "ordinal",
-    number_style = "subscript",
+    numbers = function(opts)
+      return string.format('%s', opts.ordinal)
+    end,
 
     -- Command to use for closing buffers
     close_command = "bdelete! %d",
