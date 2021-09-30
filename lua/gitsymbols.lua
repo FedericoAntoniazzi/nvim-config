@@ -56,6 +56,6 @@ require('gitsigns').setup {
   },
   use_internal_diff = true,  -- If vim.diff or luajit is present
   yadm = {
-    enable = false
+    enable = true
   },
 }
