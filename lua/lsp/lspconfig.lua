@@ -60,3 +60,4 @@ end
 
 require('lsp.lua').setup(on_attach, capabilities)
 require'lspconfig'.pyright.setup{}
+require'lspconfig'.bashls.setup{}
