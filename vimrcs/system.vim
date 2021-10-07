@@ -8,7 +8,7 @@ set clipboard=unnamedplus
 "
 " These are default settings that will be overriden by
 " specific settings for languages
-set autoindent
+set autoindent smartindent
 set noexpandtab
 set tabstop=4 shiftwidth=4
 set smarttab
@@ -64,3 +64,4 @@ nmap <A-m> :bnext<CR>
 nmap <A-n> :bprev<CR>
 " Close the current buffer and move to the previous one
 nmap <leader>bq :bp <BAR> bd #<CR>
+nmap <A-q> :bp <BAR> bd #<CR>
