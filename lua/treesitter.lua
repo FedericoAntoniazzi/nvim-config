@@ -3,9 +3,13 @@ require'nvim-treesitter.configs'.setup {
     'bash',
     'dockerfile',
     'go',
+    'gomod',
+    'javascript',
+    'json',
     'hcl',
     'python',
     'rust',
+    'typescript',
     'vim',
     'yaml'
   }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -28,6 +32,7 @@ require'nvim-treesitter.configs'.setup {
     },
   },
   indent = {
+    disable = { 'yaml' },
     enable = true
   }
 }
