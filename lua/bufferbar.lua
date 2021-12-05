@@ -8,6 +8,10 @@ require'bufferline'.setup {
     -- Command to use for closing buffers
     close_command = "bdelete! %d",
 
+    -- Trunc markers
+    left_trunc_marker = '',
+    right_trunc_marker = '',
+
     -- Disable mouse commands
     right_mouse_command = nil,
     left_mouse_command = nil,

@@ -3,6 +3,8 @@ set shell=/bin/zsh
 " Use system clipboard
 set clipboard=unnamedplus
 
+set updatetime=1000
+
 "
 " Indentation
 "

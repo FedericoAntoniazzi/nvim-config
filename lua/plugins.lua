@@ -17,9 +17,16 @@ return require('packer').startup(function(use)
   -- Tokyonight theme
   use 'folke/tokyonight.nvim'
 
+  -- Dev Icons
+  use {
+    'kyazdani42/nvim-web-devicons',
+    config = function ()
+      require('icons')
+    end
+  }
   -- Status line
   use {
-    'hoob3rt/lualine.nvim',
+    'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
     config = function ()
       require('statusline')
@@ -121,5 +128,18 @@ return require('packer').startup(function(use)
     config = function()
       require('treesitter')
     end
+  }
+
+  -- Lightbulb
+  use {
+    'kosayoda/nvim-lightbulb',
+    config = function()
+      require('lightbulb')
+    end
+  }
+
+  -- Editorconfig (.editorconfig)
+  use {
+    "gpanders/editorconfig.nvim"
   }
 end)

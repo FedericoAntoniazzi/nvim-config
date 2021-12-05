@@ -8,6 +8,8 @@ require('gitsigns').setup {
   },
   numhl = false,
   linehl = false,
+  word_diff = true,
+  signcolumn = true,
   keymaps = {
     -- Default keymap options
     noremap = true,

@@ -2,9 +2,10 @@ require'lualine'.setup {
   options = {
     icons_enabled = true,
     theme = 'tokyonight',
-    component_separators = {'', ''},
-    section_separators = {'', ''},
-    disabled_filetypes = {'NvimTree'}
+    component_separators = {left = '', right = ''},
+    section_separators = {left = '', right = ''},
+    disabled_filetypes = {'NvimTree'},
+    always_divide_middle = true
   },
   sections = {
     lualine_a = {'mode'},
