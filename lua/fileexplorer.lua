@@ -1,7 +1,5 @@
 -- Ref: https://github.com/kyazdani42/nvim-tree.lua
 -- See also: https://github.com/kyazdani42/nvim-tree.lua/issues/557 for lua config
-vim.g.nvim_tree_ignore = { '.git', 'node_modules', '.cache' }
-vim.g.nvim_tree_hide_dotfiles = 1
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_group_empty = 1
 
@@ -81,5 +79,14 @@ require'nvim-tree'.setup{
       -- list of mappings to set on the tree manually
       list = {}
     }
-  }
+  },
+  diagnostics = {
+    enable = true,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    }
+  },
 }
