@@ -85,23 +85,43 @@ return require('packer').startup(function(use)
 
   -- Completion
   use {
-    "hrsh7th/nvim-compe",
+    "rafamadriz/friendly-snippets",
     event = "InsertEnter",
-    config = function()
-      require "completion"
-    end,
-    wants = "LuaSnip",
-    requires = {
-      {
-        "L3MON4D3/LuaSnip",
-        wants = "friendly-snippets",
-        event = "InsertCharPre",
-      },
-      {
-        "rafamadriz/friendly-snippets",
-        event = "InsertCharPre",
-      },
-    },
+  }
+
+  use {
+    "hrsh7th/nvim-cmp",
+    after = "friendly-snippets",
+  }
+
+  use {
+    "L3MON4D3/LuaSnip",
+    wants = "friendly-snippets",
+    after = "nvim-cmp",
+    config = function ()
+      require('completion')
+    end
+  }
+
+  use {
+    "saadparwaiz1/cmp_luasnip",
+    after = "LuaSnip",
+  }
+  use {
+    "hrsh7th/cmp-nvim-lua",
+    after = "cmp_luasnip",
+  }
+  use {
+    "hrsh7th/cmp-nvim-lsp",
+    after = "cmp-nvim-lua",
+  }
+  use {
+    "hrsh7th/cmp-buffer",
+    after = "cmp-nvim-lsp",
+  }
+  use {
+    "hrsh7th/cmp-path",
+    after = "cmp-buffer",
   }
 
   -- Signature
@@ -114,7 +134,7 @@ return require('packer').startup(function(use)
   -- Auto pair parenthes,brackets and so on...
   use {
     'windwp/nvim-autopairs',
-    after = 'nvim-compe',
+    after = 'nvim-cmp',
     config = function ()
       require('pairs')
     end

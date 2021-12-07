@@ -34,5 +34,3 @@ set autowrite
 set nowrap
 " Show indentation level. Do NOT remove trailing space
 set list lcs=tab:\|\ 
-
-highlight link CompeDocumentation NormalFloat
