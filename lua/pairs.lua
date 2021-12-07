@@ -4,8 +4,6 @@ require('nvim-autopairs').setup{
   -- Don't add pairs if the next char is alphanumeric
   ignored_next_char = "[%w%.]" -- will ignore alphanumeric and `.` symbol
 }
-require("nvim-autopairs.completion.compe").setup({
-  map_cr = true, --  map <CR> on insert mode
-  map_complete = true, -- it will auto insert `(` after select function or method item
-  auto_select = false,  -- auto select first item
-})
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+local cmp = require("cmp")
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
