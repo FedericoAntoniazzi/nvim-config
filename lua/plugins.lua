@@ -79,7 +79,7 @@ return require('packer').startup(function(use)
   use {
     'neovim/nvim-lspconfig',
     config = function()
-      require("lsp.lspconfig")
+      require("lsp.config")
     end
   }
 
