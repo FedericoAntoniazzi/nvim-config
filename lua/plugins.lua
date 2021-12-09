@@ -80,48 +80,30 @@ return require('packer').startup(function(use)
     'neovim/nvim-lspconfig',
     config = function()
       require("lsp.config")
-    end
+    end,
   }
 
   -- Completion
   use {
     "rafamadriz/friendly-snippets",
-    event = "InsertEnter",
   }
+
+  use "L3MON4D3/LuaSnip"
 
   use {
     "hrsh7th/nvim-cmp",
-    after = "friendly-snippets",
-  }
-
-  use {
-    "L3MON4D3/LuaSnip",
-    wants = "friendly-snippets",
-    after = "nvim-cmp",
+    requires = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-nvim-lua",
+      "saadparwaiz1/cmp_luasnip",
+      "ray-x/cmp-treesitter"
+    },
     config = function ()
       require('completion')
     end
-  }
-
-  use {
-    "saadparwaiz1/cmp_luasnip",
-    after = "LuaSnip",
-  }
-  use {
-    "hrsh7th/cmp-nvim-lua",
-    after = "cmp_luasnip",
-  }
-  use {
-    "hrsh7th/cmp-nvim-lsp",
-    after = "cmp-nvim-lua",
-  }
-  use {
-    "hrsh7th/cmp-buffer",
-    after = "cmp-nvim-lsp",
-  }
-  use {
-    "hrsh7th/cmp-path",
-    after = "cmp-buffer",
   }
 
   -- Signature
