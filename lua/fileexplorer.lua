@@ -44,8 +44,6 @@ require'nvim-tree'.setup{
   hijack_cursor       = true,
   -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
   update_cwd          = true,
-  -- show lsp diagnostics in the signcolumn
-  lsp_diagnostics     = true,
   -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
   update_focused_file = {
     -- enables the feature
@@ -78,15 +76,6 @@ require'nvim-tree'.setup{
       custom_only = false,
       -- list of mappings to set on the tree manually
       list = {}
-    }
-  },
-  diagnostics = {
-    enable = true,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
     }
   },
 }
