@@ -14,8 +14,9 @@ let g:tokyonight_transparent_sidebar = 1
 " When true, section headers in the lualine theme will be bold
 let g:tokyonight_lualine_bold = 0
 " Override specific colors
-"let g:tokyonight_colors = { 'comment': '#5f688e' }
-
+let g:tokyonight_colors = { 'comment': '#5f688e' }
+" Use night theme
+let g:tokyonight_style = "night"
 set termguicolors
 colorscheme tokyonight
 
