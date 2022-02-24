@@ -144,4 +144,8 @@ return require('packer').startup(function(use)
   use {
     "gpanders/editorconfig.nvim"
   }
+
+  use {
+    "pearofducks/ansible-vim"
+  }
 end)

@@ -60,3 +60,5 @@ for _, lsp in ipairs(servers) do
 end
 
 require('lsp.lua').setup(on_attach, capabilities)
+require('lsp.yaml').setup(on_attach, capabilities)
+require('lsp.ansible').setup(on_attach, capabilities)

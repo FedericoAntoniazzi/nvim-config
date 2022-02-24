@@ -2,7 +2,6 @@
 set shell=/bin/zsh
 " Use system clipboard
 set clipboard=unnamedplus
-
 set updatetime=1000
 
 "
@@ -39,10 +38,10 @@ set showmatch
 " Splits
 "
 " Resize splits
-nnoremap <A-h> <C-w><
-nnoremap <A-l> <C-w>>
-nnoremap <A-j> <C-w>+
-nnoremap <A-k> <C-w>-
+nnoremap <A-h> 5<C-w><
+nnoremap <A-l> 5<C-w>>
+nnoremap <A-j> 5<C-w>+
+nnoremap <A-k> 5<C-w>-
 
 "
 " Terminal
