@@ -3,10 +3,10 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+  fn.system({ 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path })
   execute 'packadd packer.nvim'
 end
 
@@ -20,15 +20,15 @@ return require('packer').startup(function(use)
   -- Dev Icons
   use {
     'kyazdani42/nvim-web-devicons',
-    config = function ()
+    config = function()
       require('icons')
     end
   }
   -- Status line
   use {
     'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
-    config = function ()
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function()
       require('statusline')
     end
   }
@@ -37,7 +37,7 @@ return require('packer').startup(function(use)
   use {
     'akinsho/nvim-bufferline.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function ()
+    config = function()
       require('bufferbar')
     end
   }
@@ -46,7 +46,7 @@ return require('packer').startup(function(use)
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function ()
+    config = function()
       require('fileexplorer')
     end
   }
@@ -70,7 +70,7 @@ return require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim',
     after = 'plenary.nvim',
-    config = function ()
+    config = function()
       require('telescopeconf')
     end
   }
@@ -101,7 +101,7 @@ return require('packer').startup(function(use)
       "saadparwaiz1/cmp_luasnip",
       "ray-x/cmp-treesitter"
     },
-    config = function ()
+    config = function()
       require('completion')
     end
   }
@@ -117,7 +117,7 @@ return require('packer').startup(function(use)
   use {
     'windwp/nvim-autopairs',
     after = 'nvim-cmp',
-    config = function ()
+    config = function()
       require('pairs')
     end
   }
@@ -148,4 +148,12 @@ return require('packer').startup(function(use)
   use {
     "pearofducks/ansible-vim"
   }
+
+  use {
+    "fatih/vim-go"
+  }
+
+  use "google/vim-jsonnet"
+
+  use "hashivim/vim-hashicorp-tools"
 end)
