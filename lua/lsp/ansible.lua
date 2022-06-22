@@ -7,7 +7,7 @@ function ansible.setup(on_attach, capabilities)
     filetypes = {
       "yaml.ansible"
     },
-    single_file_support = false
+    single_file_support = true
   }
 end
 
