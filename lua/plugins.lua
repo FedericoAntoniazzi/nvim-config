@@ -17,6 +17,7 @@ vim.cmd([[
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
+	-- Catppuccin theme
 	use {
 		'catppuccin/nvim',
 		as = 'catppuccin',
@@ -24,4 +25,16 @@ return require('packer').startup(function(use)
 			require('config.theme')
 		end
 	}
+
+	-- Status line
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = {
+			'kyazdani42/nvim-web-devicons', opt = true
+		},
+		config = function()
+			require('config.statusline')
+		end
+	}
+
 end)
