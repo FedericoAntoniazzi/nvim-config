@@ -48,4 +48,14 @@ return require('packer').startup(function(use)
 		end
 	}
 
+	-- Buffer bar
+	use {
+		'akinsho/bufferline.nvim',
+		tag = "v2.*",
+		requires = 'kyazdani42/nvim-web-devicons',
+		config = function()
+			require('config.bufferbar')
+		end
+	}
+
 end)
