@@ -58,4 +58,11 @@ return require('packer').startup(function(use)
 		end
 	}
 
+	-- Git symbols
+	use {
+		'lewis6991/gitsigns.nvim',
+		config = function()
+			require('config.gitsymbols')
+		end
+	}
 end)
