@@ -65,4 +65,13 @@ return require('packer').startup(function(use)
 			require('config.gitsymbols')
 		end
 	}
+
+	-- Treesitter
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate',
+		config = function()
+			require('config.treesitter')
+		end
+	}
 end)
