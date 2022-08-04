@@ -74,4 +74,37 @@ return require('packer').startup(function(use)
 			require('config.treesitter')
 		end
 	}
+
+	-- LSP
+	use {
+		'neovim/nvim-lspconfig',
+		config = function()
+			require('config.lsp')
+		end
+	}
+
+	-- Completion engine
+	use {
+		'hrsh7th/nvim-cmp',
+		requires = {
+			'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
+			'hrsh7th/cmp-buffer', -- source for buffer words
+			'hrsh7th/cmp-path', -- source for path
+			'hrsh7th/cmp-cmdline', -- source for vim's cmdline
+			'ray-x/cmp-treesitter', -- source for treesitter
+			'saadparwaiz1/cmp_luasnip', -- Completion source for LuaSnip
+			'L3MON4D3/LuaSnip', -- Snippet engine
+		},
+		config = function()
+			require('config.completion')
+		end
+	}
+
+	use {
+		'windwp/nvim-autopairs',
+		after = 'nvim-cmp',
+		config = function()
+			require('config.autopair')
+		end
+	}
 end)

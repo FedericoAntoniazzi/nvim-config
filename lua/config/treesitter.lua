@@ -3,6 +3,8 @@ require('nvim-treesitter.install').update({
 })
 
 require('nvim-treesitter.configs').setup({
+  ensure_installed = { 'bash', 'dockerfile', 'go', 'gomod', 'json', 'hcl', 'python', 'yaml' },
+
   -- Consistent syntax highlighting
   highlight = {
     enable = true,
