@@ -100,11 +100,18 @@ return require('packer').startup(function(use)
 		end
 	}
 
+	-- Auto pair parenthesis, brackets and so on
 	use {
 		'windwp/nvim-autopairs',
 		after = 'nvim-cmp',
 		config = function()
 			require('config.autopair')
 		end
+	}
+
+	-- Show function/method signature
+	use {
+		'ray-x/lsp_signature.nvim',
+		after = 'nvim-cmp'
 	}
 end)

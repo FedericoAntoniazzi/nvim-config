@@ -14,6 +14,15 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
+
+	-- Signature
+	require('lsp_signature').on_attach({
+		bind = true,
+		doc_lines = 10,
+		hint_enable = true,
+		use_lspsaga = false,
+		hint_prefix = "=> "
+	})
 end
 
 local flags = {
