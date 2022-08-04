@@ -1,14 +1,6 @@
-# My NeoVim setup
+# Neovim configuration 
+
+This configuration has been made for my personal use, I share it only as a reference for other people who wants to learn or suggest improvements.
 
 ## Screenshot
 ![Screenshot](images/screenshot.png)
-
-## Bootstrap
-1. Clone repository in neovim configs directory
-```
-git clone https://github.com/FedericoAntoniazzi/nvim-config ~/.config/nvim
-```
-2. Launch neovim
-
-## Notes
-- Configuration tested on neovim 0.6.0
