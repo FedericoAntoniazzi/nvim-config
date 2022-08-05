@@ -1,5 +1,7 @@
 local set = vim.opt
 
+vim.g.mapleader = "\\"
+
 -- System
 set.shell = "/bin/zsh"
 set.clipboard = "unnamedplus"
