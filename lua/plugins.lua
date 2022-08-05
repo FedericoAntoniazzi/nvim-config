@@ -114,4 +114,10 @@ return require('packer').startup(function(use)
     'ray-x/lsp_signature.nvim',
     after = 'nvim-cmp'
   }
+
+  -- Go language support
+  use {
+    'fatih/vim-go',
+    run = ':GoInstallBinaries',
+  }
 end)
