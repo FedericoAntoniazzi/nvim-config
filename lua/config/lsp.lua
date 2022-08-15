@@ -42,7 +42,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'bashls', 'dockerls', 'gopls', 'golangci_lint_ls', 'pyright' }
+local servers = { 'bashls', 'dockerls', 'gopls', 'golangci_lint_ls', 'pyright', 'yamlls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
     on_attach = on_attach,
@@ -52,3 +52,4 @@ for _, lsp in ipairs(servers) do
 end
 
 require('config.lsps.lua').setup(on_attach, capabilities, flags)
+require('config.lsps.yaml').setup(on_attach, capabilities, flags)
