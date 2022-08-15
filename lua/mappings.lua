@@ -9,8 +9,8 @@ map("n", "<Space>", ":nohlsearch<CR>")
 map('n', ']b', '<cmd> BufferLineMoveNext<CR>')
 map('n', '[b', '<cmd> BufferLineMovePrev<CR>')
 -- Move to previous/next buffer
-map('n', '<A-p>', '<cmd> BufferLineCyclePrev<CR>')
-map('n', '<A-n>', '<cmd> BufferLineCycleNext<CR>')
+map('n', '<A-n>', '<cmd> BufferLineCyclePrev<CR>')
+map('n', '<A-m>', '<cmd> BufferLineCycleNext<CR>')
 -- Close buffer
 map('n', '<A-q>', '<cmd> bp <bar> bd #<CR>')
 
