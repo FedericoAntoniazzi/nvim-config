@@ -10,7 +10,8 @@ function Yaml.setup(on_attach, capabilities, flags)
     settings = {
       yaml = {
         schemas = {
-          ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = ".gitlab-ci.{yaml,yml}"
+          ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = ".gitlab-ci.{yaml,yml}",
+          ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*"
         }
       }
     }

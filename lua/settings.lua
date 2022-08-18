@@ -8,6 +8,7 @@ set.clipboard = "unnamedplus"
 
 -- General
 set.relativenumber = true
+set.wrap = false
 
 -- Indentation
 set.autoindent = true
