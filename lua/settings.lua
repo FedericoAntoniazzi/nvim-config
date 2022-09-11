@@ -2,6 +2,15 @@ local set = vim.opt
 
 vim.g.mapleader = "\\"
 
+-- Highlight current line
+set.cursorline = true
+
+set.list = true
+set.listchars = {
+  tab = "| "
+}
+
+
 -- System
 set.shell = "/bin/zsh"
 set.clipboard = "unnamedplus"
