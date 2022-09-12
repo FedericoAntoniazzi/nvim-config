@@ -9,10 +9,10 @@ map("n", "<Space>", ":nohlsearch<CR>")
 map('n', ']b', '<cmd> BufferLineMoveNext<CR>')
 map('n', '[b', '<cmd> BufferLineMovePrev<CR>')
 -- Move to previous/next buffer
-map('n', '<A-n>', '<cmd> BufferLineCyclePrev<CR>')
-map('n', '<A-m>', '<cmd> BufferLineCycleNext<CR>')
+map('n', '<C-[>', '<cmd> BufferLineCyclePrev<CR>')
+map('n', '<C-]>', '<cmd> BufferLineCycleNext<CR>')
 -- Close buffer
-map('n', '<A-q>', '<cmd> bp <bar> bd #<CR>')
+map('n', '<C-q>', '<cmd> bp <bar> bd #<CR>')
 
 -- Toggle file explorer
 map('n', '<C-n>', ':NvimTreeToggle<CR>')
