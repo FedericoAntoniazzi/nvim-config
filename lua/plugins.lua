@@ -29,6 +29,17 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- OneDark theme
+  use {
+    'navarasu/onedark.nvim',
+    config = function()
+      require('themes.onedark')
+    end,
+    cond = function()
+      return vim.loop.os_uname().sysname == "Darwin"
+    end
+  }
+
   -- Status line
   use {
     'nvim-lualine/lualine.nvim',
