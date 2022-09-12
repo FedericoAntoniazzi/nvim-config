@@ -22,7 +22,10 @@ return require('packer').startup(function(use)
     'catppuccin/nvim',
     as = 'catppuccin',
     config = function()
-      require('config.theme')
+      require('themes.catppuccin')
+    end,
+    cond = function()
+      return vim.loop.os_uname().sysname == "Linux"
     end
   }
 
