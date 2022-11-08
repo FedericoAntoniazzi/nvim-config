@@ -37,7 +37,7 @@ local flags = {
   debouce_text_changes = 150,
 }
 
-local capabilities = nvim_cmp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = nvim_cmp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
