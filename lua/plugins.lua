@@ -137,4 +137,7 @@ return require('packer').startup(function(use)
 
   -- Ansible support
   use 'pearofducks/ansible-vim'
+
+  -- Comments
+  use 'tpope/vim-commentary'
 end)
