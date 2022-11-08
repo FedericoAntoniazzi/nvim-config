@@ -134,4 +134,7 @@ return require('packer').startup(function(use)
     'fatih/vim-go',
     run = ':GoInstallBinaries',
   }
+
+  -- Ansible support
+  use 'pearofducks/ansible-vim'
 end)
