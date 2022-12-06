@@ -149,4 +149,12 @@ return require('packer').startup(function(use)
       {'nvim-lua/plenary.nvim'}
     }
   }
+
+  -- HCL
+  use {
+    'hashicorp/terraform-ls',
+    config = function()
+      require('config.hcl')
+    end
+  }
 end)
