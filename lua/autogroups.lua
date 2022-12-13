@@ -11,5 +11,7 @@ utils.create_augroup('Golang', {
 })
 
 utils.create_augroup('HCL', {
+  -- Manually set hcl filetype on .nomad files
+  { 'BufEnter,BufNew', '*.nomad', 'set filetype=hcl' },
   { 'Filetype', 'hcl', 'set tabstop=2 expandtab shiftwidth=2 softtabstop=2' }
 })
