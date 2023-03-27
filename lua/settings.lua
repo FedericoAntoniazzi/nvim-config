@@ -16,6 +16,7 @@ set.shell = "/bin/zsh"
 set.clipboard = "unnamedplus"
 
 -- General
+set.number = true
 set.relativenumber = true
 set.wrap = false
 
