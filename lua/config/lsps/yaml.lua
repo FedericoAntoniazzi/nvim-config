@@ -23,6 +23,9 @@ function Yaml.setup(on_attach, capabilities, flags)
           ["https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-meta-runtime.json"] = "/meta/runtime.y{a,}ml",
           ["https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-inventory.json"] = "/inventory/**/*.y{a,}ml",
 
+          -- Kustomize
+          ["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
+
           -- Docker compose
           ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.y{a,}ml"
         }
