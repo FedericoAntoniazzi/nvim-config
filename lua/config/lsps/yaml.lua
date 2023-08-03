@@ -27,7 +27,11 @@ function Yaml.setup(on_attach, capabilities, flags)
           ["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
 
           -- Docker compose
-          ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.y{a,}ml"
+          ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.y{a,}ml",
+
+          -- Kubernetes Fury
+          ["https://raw.githubusercontent.com/sighupio/fury-distribution/main/schemas/public/kfddistribution-kfd-v1alpha2.json"] = "furyctl.yaml",
+          -- ["https://raw.githubusercontent.com/sighupio/fury-distribution/main/schemas/public/ekscluster-kfd-v1alpha2.json"] = "furyctl.yaml",
         }
       }
     }
