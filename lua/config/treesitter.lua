@@ -5,6 +5,18 @@ require('nvim-treesitter.install').update({
 require('nvim-treesitter.configs').setup({
   ensure_installed = { 'bash', 'dockerfile', 'go', 'gomod', 'json', 'hcl', 'python', 'yaml' },
 
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  -- Require tree-sitter cli
+  auto_install = true,
+
+  modules = {},
+
+  -- List of parsers to ignore installing (for "all")
+  ignore_install = {},
+
   -- Consistent syntax highlighting
   highlight = {
     enable = true,
