@@ -1,152 +1,151 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({ 'git', 'clone', '--depth', '1',
-    'https://github.com/wbthomason/packer.nvim', install_path })
-  vim.cmd 'packadd packer.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Automatically compile changes when this file is updated
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
-
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-
-  -- Catppuccin theme
-  use {
+local plugins = {
+  -- [THEME] Catppuccin on Linux
+  {
     'catppuccin/nvim',
-    as = 'catppuccin',
+    cond = vim.loop.os_uname().sysname == "Linux",
+    lazy = false,
     config = function()
       require('themes.catppuccin')
     end,
-    cond = function()
-      return vim.loop.os_uname().sysname == "Linux"
-    end
-  }
-
-  -- OneDark theme
-  use {
+  },
+  -- [THEME] OneDark on MacOS
+  {
     'navarasu/onedark.nvim',
+    cond = vim.loop.os_uname().sysname == "Darwin",
+    lazy = false,
     config = function()
       require('themes.onedark')
     end,
-    cond = function()
-      return vim.loop.os_uname().sysname == "Darwin"
-    end
-  }
+  },
 
-  -- Status line
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = {
-      'kyazdani42/nvim-web-devicons', opt = true
-    },
+  -- [UI] Buffer bar
+  {
+    'akinsho/bufferline.nvim',
+    version = "v2.*",
+    lazy = false,
+    config = function()
+      require('config.bufferbar')
+    end
+  },
+
+  -- [UI] Status line
+  {
+    "nvim-lualine/lualine.nvim",
+    lazy = false,
     config = function()
       require('config.statusline')
     end
-  }
+  },
 
-  -- File explorer
-  use {
+  {
+    'nvim-tree/nvim-web-devicons',
+    lazy = true
+  },
+
+  -- [FILE EXPLORER]
+  {
     'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', opt = true
+    keys = {
+      -- Toggle file explorer
+      {"<C-n>", ":NvimTreeToggle<CR>", mode = "n", desc = "Toggle file explorer"},
     },
     config = function()
       require('config.fileexplorer')
     end
-  }
+  },
 
-  -- Buffer bar
-  use {
-    'akinsho/bufferline.nvim',
-    tag = "v2.*",
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function()
-      require('config.bufferbar')
-    end
-  }
-
-  -- Git symbols
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('config.gitsymbols')
-    end
-  }
-
+  -- [CODE UTILS]
   -- Treesitter
-  use {
+  {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+    build = ':TSUpdate',
     config = function()
       require('config.treesitter')
     end
-  }
+  },
 
-  -- LSP
-  use {
-    'neovim/nvim-lspconfig',
+  -- Comments
+  'tpope/vim-commentary',
+
+  -- Auto pair parenthesis, brackets and so on
+  {
+    'windwp/nvim-autopairs',
     config = function()
-      require('config.lsp')
+      require('config.autopair')
     end
-  }
+  },
 
   -- Completion engine
-  use {
+  {
     'hrsh7th/nvim-cmp',
-    requires = {
-      'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
-      'hrsh7th/cmp-buffer', -- source for buffer words
+    event = "InsertEnter",
+    dependencies = {
+      'L3MON4D3/LuaSnip', -- Snippet engine
       'hrsh7th/cmp-path', -- source for path
+      'hrsh7th/cmp-buffer', -- source for buffer words
       'hrsh7th/cmp-cmdline', -- source for vim's cmdline
+      'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
       'ray-x/cmp-treesitter', -- source for treesitter
       'saadparwaiz1/cmp_luasnip', -- Completion source for LuaSnip
-      'L3MON4D3/LuaSnip', -- Snippet engine
     },
     config = function()
       require('config.completion')
     end
-  }
+  },
 
-  -- Auto pair parenthesis, brackets and so on
-  use {
-    'windwp/nvim-autopairs',
-    after = 'nvim-cmp',
+  -- Language server
+  {
+    'neovim/nvim-lspconfig',
     config = function()
-      require('config.autopair')
+      require('config.lsp')
     end
-  }
+  },
 
   -- Show function/method signature
-  use {
+  {
     'ray-x/lsp_signature.nvim',
-    after = 'nvim-cmp'
-  }
+  },
 
-  -- Go language support
-  use {
-    'fatih/vim-go',
-    run = ':GoInstallBinaries',
-  }
-
-  -- Ansible support
-  use 'pearofducks/ansible-vim'
-
-  -- Comments
-  use 'tpope/vim-commentary'
+  -- Git symbols
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('config.gitsymbols')
+    end
+  },
 
   -- Quick text search
-  use {
+  {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.2',
-    requires = {
-      {'nvim-lua/plenary.nvim'}
+    dependencies = {
+      'nvim-lua/plenary.nvim'
     }
-  }
-end)
+  },
+
+  -- Go language support
+  {
+    'fatih/vim-go',
+    run = ':GoInstallBinaries',
+  },
+
+  -- Ansible support
+  'pearofducks/ansible-vim'
+
+}
+
+local opts = {}
+
+return require("lazy").setup(plugins, opts)
