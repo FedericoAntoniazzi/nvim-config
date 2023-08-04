@@ -15,6 +15,7 @@ local plugins = {
   -- [THEME] Catppuccin on Linux
   {
     'catppuccin/nvim',
+    name = "catppuccin",
     cond = vim.loop.os_uname().sysname == "Linux",
     lazy = false,
     config = function()
@@ -38,13 +39,22 @@ local plugins = {
     lazy = false,
     config = function()
       require('config.bufferbar')
-    end
+    end,
+    keys = {
+      {"]b", ":BufferLineMoveNext<CR>", mode = "n", desc = "Move right current buffer"},
+      {"[b", ":BufferLineMovePrev<CR>", mode = "n", desc = "Move left current buffer"},
+      {"<C-,>", ":BufferLineCyclePrev<CR>", mode = "n", desc = "View the previuos buffer"},
+      {"<C-.>", ":BufferLineCycleNext<CR>", mode = "n", desc = "View the next buffer"},
+    }
   },
 
   -- [UI] Status line
   {
     "nvim-lualine/lualine.nvim",
     lazy = false,
+    dependencies = {
+      "nvim-lua/lsp-status.nvim",
+    },
     config = function()
       require('config.statusline')
     end
@@ -71,7 +81,8 @@ local plugins = {
   -- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
+    build = ':TSUpdateSync',
+    event = {"BufReadPost", "BufNewFile"},
     config = function()
       require('config.treesitter')
     end
@@ -117,6 +128,8 @@ local plugins = {
   -- Show function/method signature
   {
     'ray-x/lsp_signature.nvim',
+    event = "VeryLazy",
+    lazy = true
   },
 
   -- Git symbols
