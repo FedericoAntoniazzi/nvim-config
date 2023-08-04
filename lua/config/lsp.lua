@@ -21,8 +21,11 @@ local on_attach = function(client, bufnr)
     doc_lines = 10,
     hint_enable = true,
     use_lspsaga = false,
-    hint_prefix = "=> "
-  })
+    hint_prefix = "=> ",
+    handler_opts = {
+      border = "rounded"
+    }
+  }, bufnr)
 
   if client.server_capabilities.document_formatting then
     vim.api.nvim_command [[augroup Format]]
