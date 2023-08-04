@@ -7,5 +7,8 @@ end
 require('lualine').setup {
   options = {
     theme = theme
+  },
+  sections = {
+    lualine_x = {"require'lsp-status'.status()", 'filetype'},
   }
 }
