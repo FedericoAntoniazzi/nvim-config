@@ -1,5 +1,3 @@
-vim.opt.termguicolors = true
-
 require("bufferline").setup {
   options = {
     -- Show buffer numbers

@@ -68,9 +68,10 @@ local plugins = {
   -- [FILE EXPLORER]
   {
     'nvim-tree/nvim-tree.lua',
+    lazy = false,
     keys = {
       -- Toggle file explorer
-      {"<C-n>", ":NvimTreeToggle<CR>", mode = "n", desc = "Toggle file explorer"},
+      {"<C-n>", ":NvimTreeToggle<CR>", desc = "Toggle file explorer", mode = "n", silent = true, noremap = true},
     },
     config = function()
       require('config.fileexplorer')
@@ -149,13 +150,31 @@ local plugins = {
   },
 
   -- Go language support
+  -- {
+  --   'fatih/vim-go',
+  --   run = ':GoInstallBinaries',
+  -- },
   {
-    'fatih/vim-go',
-    run = ':GoInstallBinaries',
+    "ray-x/go.nvim",
+    dependencies = {
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = {"CmdlineEnter *.go"},
+    ft = {"go", 'gomod'},
+    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
   },
 
   -- Ansible support
-  'pearofducks/ansible-vim'
+  {
+    'pearofducks/ansible-vim',
+    lazy = true,
+    ft = {"ansible", "ansible_hosts", "yaml.ansible", "jinja2"},
+  }
 
 }
 

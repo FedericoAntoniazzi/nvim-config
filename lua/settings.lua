@@ -1,9 +1,13 @@
 local set = vim.opt
 
--- disable netrw
+-- disable netrw (required by nvim-tree)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- Enables 24-bit RGB colors
+vim.opt.termguicolors = true
+
+-- Set leader
 vim.g.mapleader = "\\"
 
 -- Highlight current line
