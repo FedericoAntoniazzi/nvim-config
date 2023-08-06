@@ -133,12 +133,15 @@ local plugins = {
     lazy = true
   },
 
-  -- Git symbols
+  -- Git
   {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('config.gitsymbols')
     end
+  },
+  {
+    'akinsho/git-conflict.nvim',
   },
 
   -- Quick text search
@@ -150,10 +153,6 @@ local plugins = {
   },
 
   -- Go language support
-  -- {
-  --   'fatih/vim-go',
-  --   run = ':GoInstallBinaries',
-  -- },
   {
     "ray-x/go.nvim",
     dependencies = {
