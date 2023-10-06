@@ -15,3 +15,7 @@ utils.create_augroup('HCL', {
   { 'BufEnter,BufNew', '*.nomad', 'set filetype=hcl' },
   { 'Filetype', 'hcl', 'set tabstop=2 expandtab shiftwidth=2 softtabstop=2' }
 })
+
+utils.create_augroup('Terraform', {
+  { 'Filetype', 'terraform', 'set tabstop=2 expandtab shiftwidth=2 softtabstop=2' }
+})
