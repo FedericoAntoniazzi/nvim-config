@@ -178,6 +178,19 @@ local plugins = {
     build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
   },
 
+  -- Yaml companion
+  {
+    "someone-stole-my-name/yaml-companion.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function ()
+      require("telescope").load_extension("yaml_schema")
+    end
+  },
+
   -- Ansible support
   {
     'pearofducks/ansible-vim',
