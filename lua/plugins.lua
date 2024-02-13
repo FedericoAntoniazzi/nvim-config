@@ -113,6 +113,7 @@ local plugins = {
       'ray-x/cmp-treesitter', -- source for treesitter
       'saadparwaiz1/cmp_luasnip', -- Completion source for LuaSnip
     },
+    version = "2.2.x",
     config = function()
       require('config.completion')
     end
