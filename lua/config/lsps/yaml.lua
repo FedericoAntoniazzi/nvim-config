@@ -33,6 +33,10 @@ function Yaml.setup(on_attach, capabilities, flags)
       name = "Fury KFD EKS",
       uri = "https://raw.githubusercontent.com/sighupio/fury-distribution/main/schemas/public/ekscluster-kfd-v1alpha2.json",
     },
+    {
+      name = "AlertmanagerConfig",
+      uri = "https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/jsonnet/prometheus-operator/alertmanagerconfigs-crd.json"
+    },
   })
 
   local cfg = require("yaml-companion").setup({
