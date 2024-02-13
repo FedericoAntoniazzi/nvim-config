@@ -9,21 +9,8 @@ function Yaml.setup(on_attach, capabilities, flags)
     return t1
   end
 
-  local generateKubeSchemas = function ()
-    local schemas = {}
-    local minVersion = 15
-    local maxVersion = 28
-    for v = minVersion, maxVersion, 1 do
-      table.insert(schemas, {
-        name = string.format("Kubernetes v1.%d", v),
-        uri = string.format("https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.%d-standalone-strict/all.json", v)
-      })
-    end
+  local schemas = {}
 
-    return schemas
-  end
-
-  local schemas = generateKubeSchemas()
   schemas = mergeSchemas(schemas, {
     {
       name = "Fury KFD Distribution",
