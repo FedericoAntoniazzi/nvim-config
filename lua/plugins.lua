@@ -35,11 +35,14 @@ local plugins = {
   -- [UI] Buffer bar
   {
     'akinsho/bufferline.nvim',
-    version = "v2.*",
+    version = "v4.*",
     lazy = false,
     config = function()
       require('config.bufferbar')
     end,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
     keys = {
       {"]b", ":BufferLineMoveNext<CR>", mode = "n", desc = "Move right current buffer"},
       {"[b", ":BufferLineMovePrev<CR>", mode = "n", desc = "Move left current buffer"},
