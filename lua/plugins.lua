@@ -188,7 +188,10 @@ local plugins = {
     },
     config = function ()
       require("telescope").load_extension("yaml_schema")
-    end
+    end,
+    keys = {
+      {"<leader>y", ":Telescope yaml_schema<CR>", mode = "n", desc = "Choose YAML Schema"},
+    },
   },
 
   -- Ansible support
