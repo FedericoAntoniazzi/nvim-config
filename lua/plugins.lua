@@ -12,23 +12,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  -- [THEME] Catppuccin on Linux
+  -- [THEME] Catppuccin
   {
     'catppuccin/nvim',
     name = "catppuccin",
-    cond = vim.loop.os_uname().sysname == "Linux",
     lazy = false,
     config = function()
       require('themes.catppuccin')
-    end,
-  },
-  -- [THEME] OneDark on MacOS
-  {
-    'navarasu/onedark.nvim',
-    cond = vim.loop.os_uname().sysname == "Darwin",
-    lazy = false,
-    config = function()
-      require('themes.onedark')
     end,
   },
 

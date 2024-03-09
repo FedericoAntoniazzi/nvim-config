@@ -1,15 +1,24 @@
-vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-
-require("catppuccin").setup({
+local catppuccinGenericOpts = {
   transparent_background = true,
-  integrations = {
-    bufferline = true,
-    gitsigns = true,
-    nvimtree = {
-      show_root = true,
-      transparent_panel = true
-    }
-  }
-})
+  flavour = "mocha"
+}
 
-vim.cmd [[colorscheme catppuccin]]
+local mergeSchemas = function (t1, t2)
+  for k,v in pairs(t2) do
+    t1[k] = v
+  end
+  return t1
+end
+
+local overrideOpts = {}
+if vim.loop.os_uname().sysname == "Darwin" then
+  overrideOpts = {
+    transparent_background = false
+  }
+end
+
+local catppuccinOpts = mergeSchemas(catppuccinGenericOpts, overrideOpts)
+
+require("catppuccin").setup(catppuccinOpts)
+
+vim.cmd.colorscheme "catppuccin"
