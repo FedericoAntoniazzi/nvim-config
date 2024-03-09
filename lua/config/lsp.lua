@@ -54,6 +54,7 @@ for _, lsp in ipairs(servers) do
   })
 end
 
+require('config.lsps.golang').setup(on_attach, capabilities, flags)
 require('config.lsps.lua').setup(on_attach, capabilities, flags)
 require('config.lsps.python').setup(on_attach, capabilities, flags)
 require('config.lsps.yaml').setup(on_attach, capabilities, flags)
