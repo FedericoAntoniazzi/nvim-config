@@ -85,6 +85,11 @@ local plugins = {
   -- Comments
   'tpope/vim-commentary',
 
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+
   -- Auto pair parenthesis, brackets and so on
   {
     'windwp/nvim-autopairs',
