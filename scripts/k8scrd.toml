@@ -1,0 +1,21 @@
+[config]
+output = "../lua/config/lsps/yaml_kubernetes_crds.lua"
+
+[crds]
+[crds."velero.io"]
+v1 = [ "Backup", "BackupRepository", "BackupStorageLocation", "DeleteBackupRequest", "DownloadRequest", "PodVolumeBackup", "PodVolumeRestore", "Restore", "Schedule", "ServerStatusRequest", "VolumeSnapshotLocation" ]
+
+[crds."monitoring.coreos.com"]
+v1 = [ "Alertmanager", "PodMonitor", "Probe", "Prometheus", "PrometheusRule", "ServiceMonitor"]
+v1alpha1 = [ "AlertmanagerConfig", "PrometheusAgent", "ScrapeConfig",]
+
+[crds."metallb.io"]
+v1alpha1 = [ "AddressPool" ]
+v1beta1 = [ "AddressPool", "BFDProfile", "BGPAdvertisement", "BGPPeer", "Community", "IPAddressPool", "L2Advertisement"]
+v1beta2 = [ "BGPPeer" ]
+
+[crds."operator.tigera.io"]
+v1 = [ "ApiServer", "ImageSet", "Installation", "TigeraStatus" ]
+
+[crds."cert-manager.io"]
+v1 = [ "Certificate", "CertificateRequest", "Challenge", "ClusterIssuer", "Issuer", "Order" ]

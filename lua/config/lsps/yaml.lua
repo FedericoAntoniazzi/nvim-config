@@ -1,5 +1,7 @@
 local Yaml = {}
 
+local folderOfThisFile = (...):match("(.-)[^%.]+$")
+
 function Yaml.setup(on_attach, capabilities, flags)
 
   local mergeSchemas = function (t1, t2)
@@ -9,9 +11,7 @@ function Yaml.setup(on_attach, capabilities, flags)
     return t1
   end
 
-  local schemas = {}
-
-  schemas = mergeSchemas(schemas, {
+  local schemas = {
     {
       name = "Fury KFD Distribution",
       uri = "https://raw.githubusercontent.com/sighupio/fury-distribution/main/schemas/public/kfddistribution-kfd-v1alpha2.json",
@@ -21,10 +21,12 @@ function Yaml.setup(on_attach, capabilities, flags)
       uri = "https://raw.githubusercontent.com/sighupio/fury-distribution/main/schemas/public/ekscluster-kfd-v1alpha2.json",
     },
     {
-      name = "AlertmanagerConfig",
-      uri = "https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/jsonnet/prometheus-operator/alertmanagerconfigs-crd.json"
+      name = "Fury OnPremises",
+      uri = "https://raw.githubusercontent.com/sighupio/fury-distribution/main/schemas/public/onpremises-kfd-v1alpha2.json",
     },
-  })
+  }
+
+  schemas = mergeSchemas(require(folderOfThisFile .. "yaml_kubernetes_crds"), schemas)
 
   local cfg = require("yaml-companion").setup({
     schemas = schemas,
