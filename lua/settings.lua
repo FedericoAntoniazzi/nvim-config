@@ -13,6 +13,7 @@ set.listchars = {
 }
 
 -- Show row number
+set.number = true
 set.relativenumber = true
 
 -- Disable row wrap
@@ -42,3 +43,7 @@ set.hidden = true
 vim.syntax = "on"
 vim.filetype.plugin = true
 vim.filetype.indent = true
+
+-- Disable swapfile and backups
+vim.opt.swapfile = false
+vim.opt.backup = false
