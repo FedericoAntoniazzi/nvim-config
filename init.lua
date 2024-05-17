@@ -9,3 +9,5 @@ aucmd({'FileType'}, {
   group = lua,
   command = 'set tabstop=2 expandtab shiftwidth=2 softtabstop=2',
 })
+
+require('plugins')
