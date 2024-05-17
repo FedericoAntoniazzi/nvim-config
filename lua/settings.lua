@@ -1,5 +1,9 @@
 local set = vim.opt
 
+-- Disable default file explorer
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Enables 24-bit RGB colors
 set.termguicolors = true
 
