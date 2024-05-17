@@ -1,6 +1,6 @@
 return {
+  -- File explorer
   {
-    -- File explorer
     "nvim-tree/nvim-tree.lua",
     version = "^v1",
     lazy = false,
@@ -10,6 +10,16 @@ return {
     },
     config = function()
       require('plugins.configs.nvimtree')
+    end
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/lsp-status.nvim",
+    },
+    config = function()
+      require('plugins.configs.lualine')
     end
   }
 }
