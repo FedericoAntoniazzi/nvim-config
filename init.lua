@@ -11,3 +11,5 @@ aucmd({'FileType'}, {
 })
 
 require('plugins')
+
+vim.cmd.colorscheme('catppuccin')
