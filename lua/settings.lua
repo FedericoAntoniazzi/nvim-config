@@ -51,3 +51,6 @@ vim.filetype.indent = true
 -- Disable swapfile and backups
 vim.opt.swapfile = false
 vim.opt.backup = false
+
+-- Use system clipboard
+set.clipboard = "unnamedplus"
