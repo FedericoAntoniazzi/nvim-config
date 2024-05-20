@@ -16,7 +16,4 @@ local plugins = {
   require("plugins.theme"),
 }
 local opts = {}
-
-local utils = require("utils")
-
 require("lazy").setup(plugins, opts)
