@@ -9,7 +9,7 @@ return {
       {"<C-f>", ":NvimTreeToggle<CR>", desc="Toggle file explorer", mode="n", silent=true, noremap=true}
     },
     config = function()
-      require('plugins.configs.nvimtree')
+      require('configs.nvimtree')
     end
   },
 
@@ -21,7 +21,7 @@ return {
       "nvim-lua/lsp-status.nvim",
     },
     config = function()
-      require('plugins.configs.lualine')
+      require('configs.lualine')
     end
   },
 
@@ -40,7 +40,7 @@ return {
       {"<C-m>", ":BufferLineCycleNext<CR>", mode = "n", desc = "View the next buffer", silent=true},
     },
     config = function()
-      require('plugins.configs.bufferline')
+      require('configs.bufferline')
     end
   }
 }

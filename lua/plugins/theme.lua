@@ -4,7 +4,7 @@ return {
     name = "catppuccin",
     lazy = false,
     config = function()
-      require('plugins.configs.catppuccin')
+      require('configs.catppuccin')
     end,
   },
 }
