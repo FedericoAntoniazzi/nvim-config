@@ -9,4 +9,12 @@ return {
       require('configs.treesitter')
     end
   },
+  -- Git
+  {
+    'lewis6991/gitsigns.nvim',
+    event = {"VeryLazy"},
+    config = function()
+      require('configs.gitsigns')
+    end
+  },
 }
