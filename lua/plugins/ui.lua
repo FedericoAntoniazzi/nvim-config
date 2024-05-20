@@ -3,7 +3,7 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     version = "^v1",
-    lazy = false,
+    event = {"VeryLazy"},
     keys = {
       -- Toggle file explorer
       {"<C-f>", ":NvimTreeToggle<CR>", desc="Toggle file explorer", mode="n", silent=true, noremap=true}
@@ -16,7 +16,7 @@ return {
   -- Status line
   {
     "nvim-lualine/lualine.nvim",
-    lazy = false,
+    event = {"VeryLazy"},
     dependencies = {
       "nvim-lua/lsp-status.nvim",
     },
