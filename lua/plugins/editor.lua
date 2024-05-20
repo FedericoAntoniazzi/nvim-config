@@ -15,4 +15,12 @@ return {
       {"<leader>fc", ":lua require('telescope.builtin').git_commits()<CR>", desc="Lists git commits with diff preview", mode="n", silent=true, noremap=true},
     },
   },
+  -- Auto pair parenthesis and brackets
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = function()
+      require('configs.autopairs')
+    end
+  },
 }
