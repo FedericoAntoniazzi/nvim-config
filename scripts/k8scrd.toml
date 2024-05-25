@@ -1,21 +1,29 @@
 [config]
-output = "../lua/config/lsps/yaml_kubernetes_crds.lua"
+output = "../lua/configs/lsps/yaml_kubernetes_crds.lua"
 
 [crds]
-[crds."velero.io"]
-v1 = [ "Backup", "BackupRepository", "BackupStorageLocation", "DeleteBackupRequest", "DownloadRequest", "PodVolumeBackup", "PodVolumeRestore", "Restore", "Schedule", "ServerStatusRequest", "VolumeSnapshotLocation" ]
+[crds."velero.io".v1]
+resources = [ "Backup", "BackupRepository", "BackupStorageLocation", "DeleteBackupRequest", "DownloadRequest", "PodVolumeBackup", "PodVolumeRestore", "Restore", "Schedule", "ServerStatusRequest", "VolumeSnapshotLocation" ]
 
-[crds."monitoring.coreos.com"]
-v1 = [ "Alertmanager", "PodMonitor", "Probe", "Prometheus", "PrometheusRule", "ServiceMonitor"]
-v1alpha1 = [ "AlertmanagerConfig", "PrometheusAgent", "ScrapeConfig",]
+[crds."monitoring.coreos.com".v1]
+resources = [ "Alertmanager", "PodMonitor", "Probe", "Prometheus", "PrometheusRule", "ServiceMonitor" ]
 
-[crds."metallb.io"]
-v1alpha1 = [ "AddressPool" ]
-v1beta1 = [ "AddressPool", "BFDProfile", "BGPAdvertisement", "BGPPeer", "Community", "IPAddressPool", "L2Advertisement"]
-v1beta2 = [ "BGPPeer" ]
+[crds."monitoring.coreos.com".v1alpha1]
+resources = [ "AlertmanagerConfig", "PrometheusAgent", "ScrapeConfig" ]
 
-[crds."operator.tigera.io"]
-v1 = [ "ApiServer", "ImageSet", "Installation", "TigeraStatus" ]
+[crds."metallb.io".v1alpha1]
+resources = [ "AddressPool" ]
+[crds."metallb.io".v1beta1]
+resources = [ "AddressPool", "BFDProfile", "BGPAdvertisement", "BGPPeer", "Community", "IPAddressPool", "L2Advertisement"]
+[crds."metallb.io".v1beta2]
+resources = [ "BGPPeer" ]
 
-[crds."cert-manager.io"]
-v1 = [ "Certificate", "CertificateRequest", "Challenge", "ClusterIssuer", "Issuer", "Order" ]
+[crds."operator.tigera.io".v1]
+resources = [ "ApiServer", "ImageSet", "Installation", "TigeraStatus" ]
+
+[crds."cert-manager.io".v1]
+resources = [ "Certificate", "CertificateRequest", "Challenge", "ClusterIssuer", "Issuer", "Order" ]
+
+[crds."postgresql.cnpg.io".v1]
+mode = "local"
+resources = [ "Backup", "Cluster", "ClusterImageCatalog", "ImageCatalog", "Pooler", "ScheduledBackup" ]

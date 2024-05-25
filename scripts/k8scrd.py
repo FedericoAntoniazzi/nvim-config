@@ -1,5 +1,6 @@
 import argparse
 import tomllib
+import os
 
 parser = argparse.ArgumentParser(
     description="Download CRD schemas"
@@ -25,15 +26,25 @@ def validate_arguments(cliargs):
 
     return True
 
+def build_crd_path(mode, api_group, api_version, resource):
+    crd_remote_base_url = "https://raw.githubusercontent.com/datreeio/CRDs-catalog/main"
+    crd_local_path = f"{os.getenv("HOME")}/.config/nvim/resources/k8scrds"
+    if mode == "local":
+        return f"{crd_local_path}/{api_group}/{resource.lower()}_{api_version}.json"
+    else:
+        return f"{crd_remote_base_url}/{api_group}/{resource.lower()}_{api_version}.json"
+
 def generate_table(crds) -> list[str]:
-    crd_base_url = "https://raw.githubusercontent.com/datreeio/CRDs-catalog/main"
     crds_table_rows = ["return {"]
     for apiGroup in crds:
         for apiVersion in crds[apiGroup]:
-            for resource in crds[apiGroup][apiVersion]:
-                name = resource
-                url = f"{crd_base_url}/{apiGroup}/{resource.lower()}_{apiVersion}.json"
-                crds_table_rows.append('  { name="'+name+' ('+apiVersion+')", uri="'+url+'" },')
+            resources = crds[apiGroup][apiVersion]["resources"]
+            mode = crds[apiGroup][apiVersion].get("mode", "")
+            for resource in resources:
+                name = f"{resource} [{apiGroup}/{apiVersion}]"
+                url = build_crd_path(mode, apiGroup, apiVersion, resource)
+                crds_table_rows.append('  { name="'+name+'", uri="'+url+'" },')
+
     crds_table_rows.append("}")
     return crds_table_rows
 
