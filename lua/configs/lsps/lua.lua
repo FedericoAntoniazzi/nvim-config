@@ -1,6 +1,7 @@
 local lua = {}
 
-function lua.setup(on_attach, capabilities)
+-- function lua.setup(on_attach, capabilities)
+function lua.setup(capabilities)
   require 'lspconfig'.lua_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
