@@ -33,6 +33,8 @@ return {
           capabilities = capabilities,
         })
       end
+
+      require('config.lsp.lua').setup(on_attach, capabilities)
     end
   }
 }
