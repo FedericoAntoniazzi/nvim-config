@@ -35,6 +35,7 @@ return {
       end
 
       require('config.lsp.lua').setup(on_attach, capabilities)
+      require('config.lsp.python').setup(on_attach, capabilities)
     end
   }
 }
