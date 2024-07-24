@@ -77,6 +77,13 @@ return {
 
       require('config.lsp.lua').setup(on_attach, capabilities)
       require('config.lsp.python').setup(on_attach, capabilities)
+      require('config.lsp.yaml').setup(on_attach, capabilities)
+    end
+  },
+  {
+    "someone-stole-my-name/yaml-companion.nvim",
+    config = function ()
+      require("telescope").load_extension("yaml_schema")
     end
   }
 }
