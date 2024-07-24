@@ -5,7 +5,6 @@ return {
     dependencies = {
       "hrsh7th/cmp-buffer",       -- source for text in buffer
       "hrsh7th/cmp-path",         -- source for file system paths
-      'hrsh7th/cmp-nvim-lsp',     -- source for programming languages
       'ray-x/cmp-treesitter',     -- source for treesitter
       'saadparwaiz1/cmp_luasnip', -- Completion source for LuaSnip
       {
