@@ -38,4 +38,10 @@ return {
   { name="ClusterIssuer (v1)", uri="https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/cert-manager.io/clusterissuer_v1.json" },
   { name="Issuer (v1)", uri="https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/cert-manager.io/issuer_v1.json" },
   { name="Order (v1)", uri="https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/cert-manager.io/order_v1.json" },
+  { name="Application (v1alpha1)", uri="https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json" },
+  { name="ApplicationSet (v1alpha1)", uri="https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/applicationset_v1alpha1.json" },
+  { name="AppProject (v1alpha1)", uri="https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/appproject_v1alpha1.json" },
+  { name="CronWorkflow (v1alpha1)", uri="https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/cronworkflow_v1alpha1.json" },
+  { name="Rollout (v1alpha1)", uri="https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/rollout_v1alpha1.json" },
+  { name="Workflow (v1alpha1)", uri="https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/workflow_v1alpha1.json" },
 }
