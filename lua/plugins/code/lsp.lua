@@ -33,9 +33,10 @@ return {
         'golangci_lint_ls',
         'gopls',
         'jsonls',
+        'ruff',
         'terraformls',
-
       }
+
       for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup({
           on_attach = on_attach,
@@ -44,7 +45,6 @@ return {
       end
 
       require('config.lsp.lua').setup(on_attach, capabilities)
-      require('config.lsp.python').setup(on_attach, capabilities)
       require('config.lsp.yaml').setup(on_attach, capabilities)
     end
   },
