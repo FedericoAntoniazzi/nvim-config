@@ -42,6 +42,8 @@ function Yaml.setup(on_attach, capabilities)
     }
   })
   require("lspconfig")["yamlls"].setup(cfg)
+
+  vim.keymap.set("n", "<leader>y", ":Telescope yaml_schema<CR>")
 end
 
 return Yaml
