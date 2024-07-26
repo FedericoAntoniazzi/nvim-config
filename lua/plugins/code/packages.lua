@@ -20,10 +20,11 @@ return {
         'golangci_lint_ls',
         'gopls',
         'jsonls',
-        'pylsp',
+        'ruff',
         'terraformls',
         'yamlls'
       }
+
 
       require("mason-tool-installer").setup({
         ensure_installed = lsps
