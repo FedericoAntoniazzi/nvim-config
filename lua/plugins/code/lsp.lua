@@ -1,37 +1,5 @@
 return {
   {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = {
-      {
-        "williamboman/mason.nvim",
-        build = ":MasonUpdate",
-        opts = {}
-      }
-    },
-    config = function()
-      local joinLists = function(t1, t2)
-        for k, v in pairs(t2) do
-          t1[k] = v
-        end
-        return t1
-      end
-
-      require("mason-lspconfig").setup({
-        ensure_installed = {
-          'ansiblels',
-          'bashls',
-          'dockerls',
-          'golangci_lint_ls',
-          'gopls',
-          'jsonls',
-          'pylsp',
-          'terraformls',
-          'yamlls'
-        }
-      })
-    end
-  },
-  {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
@@ -82,7 +50,7 @@ return {
   },
   {
     "someone-stole-my-name/yaml-companion.nvim",
-    config = function ()
+    config = function()
       require("telescope").load_extension("yaml_schema")
     end
   }
