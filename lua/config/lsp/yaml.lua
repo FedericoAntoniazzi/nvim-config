@@ -2,7 +2,7 @@ local Yaml = {}
 
 local folderOfThisFile = (...):match("(.-)[^%.]+$")
 
-function Yaml.setup(on_attach, capabilities, flags)
+function Yaml.setup(on_attach, capabilities)
   local schemas = require(folderOfThisFile .. "yaml_kubernetes_crds")
   local cfg = require("yaml-companion").setup({
     schemas = schemas,
@@ -10,7 +10,6 @@ function Yaml.setup(on_attach, capabilities, flags)
     lspconfig = {
       on_attach = on_attach,
       capabilities = capabilities,
-      flags = flags,
 
       settings = {
         schemas = {
