@@ -22,6 +22,7 @@ return {
 
       local lsps = {
         'ansiblels',
+        'basedpyright',
         'bashls',
         'dockerls',
         'golangci_lint_ls',

@@ -28,6 +28,7 @@ return {
       -- map buffer local keybindings when the language server attaches
       local servers = {
         'ansiblels',
+        'basedpyright',
         'bashls',
         'dockerls',
         'golangci_lint_ls',
