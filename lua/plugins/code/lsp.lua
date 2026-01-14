@@ -39,7 +39,7 @@ return {
       }
 
       for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup({
+        vim.lsp.config(lsp, {
           on_attach = on_attach,
           capabilities = capabilities,
         })

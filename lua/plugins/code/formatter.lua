@@ -5,7 +5,8 @@ return {
     config = function()
       require('conform').setup({
         formatters_by_ft = {
-          yaml = { "yamlfmt", "yamlfix" }
+          yaml = { "yamlfmt", "yamlfix" },
+          go = {}
         },
         -- format_on_save = {
         --   timeout_ms = 500,
