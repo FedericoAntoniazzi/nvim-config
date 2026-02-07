@@ -23,3 +23,13 @@ vim.opt.autowrite     = false
 
 -- Do not wrap the text
 vim.opt.wrap          = false
+
+-- Filetypes
+vim.filetype.add {
+  extension = {
+    caddy = 'caddy',
+  },
+  filename = {
+    Caddyfile = 'caddy',
+  },
+}

@@ -2,9 +2,27 @@ return {
   {
     'stevearc/conform.nvim',
     event = { "BufReadPre", "BufNewFile" },
+    keys = {
+      {
+        '<leader>cf',
+        function()
+          require('conform').format { async = true, lsp_format = 'fallback' }
+        end,
+        mode = 'n',
+        desc = '[F]ormat buffer',
+      },
+    },
     config = function()
       require('conform').setup({
+        formatters = {
+          caddy = {
+            command = 'caddy',
+            args = {'fmt', '-'},
+            stdin = true,
+          },
+        },
         formatters_by_ft = {
+          caddy = { 'caddy' },
           yaml = { "yamlfmt", "yamlfix" },
           go = {}
         },
