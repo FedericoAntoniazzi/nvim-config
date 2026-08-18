@@ -10,6 +10,11 @@ return {
       -- local protocol = require("vim.lsp.protocol")
 
       local on_attach = function(client, bufnr)
+        -- Disable automatic formatting on go. Handled by go.nvim
+        if vim.bo[bufnr].filetype == "go" then
+          return
+        end
+
         -- format on save
         if client.server_capabilities.documentFormattingProvider then
           vim.api.nvim_create_autocmd("BufWritePre", {
@@ -43,6 +48,7 @@ return {
           on_attach = on_attach,
           capabilities = capabilities,
         })
+        vim.lsp.enable(lsp)
       end
 
       require('config.lsp.lua').setup(on_attach, capabilities)
