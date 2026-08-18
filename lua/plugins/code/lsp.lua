@@ -51,8 +51,14 @@ return {
         vim.lsp.enable(lsp)
       end
 
-      require('config.lsp.lua').setup(on_attach, capabilities)
-      require('config.lsp.yaml').setup(on_attach, capabilities)
+      vim.api.nvim_set_keymap('n', '<leader>do', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>d[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>d]', '<cmd>lua vim.diagnostic.goto_next()<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>Telescope diagnostics<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true })
+
+      -- require('config.lsp.lua').setup(on_attach, capabilities)
+      -- require('config.lsp.yaml').setup(on_attach, capabilities)
     end
   },
   {
