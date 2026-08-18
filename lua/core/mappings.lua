@@ -15,3 +15,5 @@ local function reload()
 end
 vim.keymap.set("n", "<leader>ve", ":tabnew $MYVIMRC<cr>", { desc = "Open neovim configuration file" })
 vim.keymap.set("n", "<leader>vr", reload, { desc = "Re-source neovim configuration file" })
+
+vim.api.nvim_set_keymap("n", "<leader>do", '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true, desc = "Show LSP diagnostic" })
