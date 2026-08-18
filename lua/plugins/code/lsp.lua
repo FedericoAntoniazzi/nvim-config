@@ -62,10 +62,24 @@ return {
     end
   },
   {
-    "someone-stole-my-name/yaml-companion.nvim",
-    event = { "VeryLazy" },
-    config = function()
-      require("telescope").load_extension("yaml_schema")
+    "mosheavni/yaml-companion.nvim",
+    opts = {
+      lspconfig = {
+        settings = {
+          yaml = {
+            schemas = {
+              ["https://www.schemastore.org/kustomization.json"] = "kustomization.yaml",
+              ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+              ["https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json"] = "compose.yaml"
+            }
+          }
+        }
+      }
+    },
+    config = function(_, opts)
+      local cfg = require("yaml-companion").setup(opts)
+      vim.lsp.config("yamlls", cfg)
+      vim.lsp.enable("yamlls")
     end
-  }
+  },
 }
