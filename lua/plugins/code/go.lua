@@ -9,8 +9,8 @@ return {
     event = { "CmdlineEnter" },
     ft = { "go", 'gomod' },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
-    config = function()
-      require("go").setup()
+    opts = function()
+      require("go").setup(opts)
 
       local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
       vim.api.nvim_create_autocmd("BufWritePre", {
@@ -20,6 +20,6 @@ return {
         end,
         group = format_sync_grp,
       })
-    end
+    end 
   }
 }
