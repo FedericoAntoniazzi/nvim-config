@@ -25,21 +25,21 @@ return {
         'basedpyright',
         'bashls',
         'dockerls',
-        'golangci_lint_ls',
         'gopls',
         'jsonls',
         'ruff',
         'terraformls',
-        'yamlls'
+        'yamlls',
       }
 
       local linters = {
-        'yamllint'
+        'yamllint',
+        'golangci_lint_ls',
       }
 
       local formatters = {
         'yamlfix',
-        'yamlfmt'
+        'yamlfmt',
       }
 
       require("mason-tool-installer").setup({
